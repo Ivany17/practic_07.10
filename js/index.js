@@ -160,37 +160,62 @@
         // console.log(myArray.some(isEven));
 
 
-    // function User(firstName, lastName, age, isMale, email, isSubscribed = false){
-    //     this.firstName = firstName;
-    //     this.lastName = lastName;
-    //     this.age = age;
-    //     this.isMale = isMale;
-    //     this.email = email;
-    //     this.isSubscribed = isSubscribed;
-    // }
+    function User(firstName, lastName, age, isMale, email, isSubscribed = false){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.isMale = isMale;
+        this.email = email;
+        this.isSubscribed = isSubscribed;
+    }
 
-    // function UserPrototype(){
-    //     this.fullName = function(){
-    //         return `${this.firstName} ${this.lastName}`;
-    //     }
-    // }
+    function UserPrototype(){
+        this.fullName = function(){
+            return `${this.firstName} ${this.lastName}`;
+        }
+    }
 
-    // User.protorype = new UserPrototype();
+    User.prototype = new UserPrototype();
 
-    // function createRandomUser(amount = 1){
-    //     const db = [];
-    //     for(let i=0; i<amount; i++){
-    //         const user = new User(
-    //             `Name${i}`,
-    //             `Lname${i}`,
-    //             Math.ceil(Math.random()*60+20),
-    //             Math.random()>0.5,
-    //             `email${i}@gmail.com`
-    //         );
-    //         db.push(user);
-    //     }
-    //     return db;
-    // }
+    function createRandomUser(amount = 1){
+        const db = [];
+        for(let i=0; i<amount; i++){
+            const users = new User(
+                `Name${i}`,
+                `Lname${i}`,
+                Math.ceil(Math.random()*60+20),
+                Math.random()>0.5,
+                `email${i}@gmail.com`
+            );
+            db.push(users);
+        }
+        return db;
+    }
 
-    // const user = createRandomUser(50);
-    // console.table(user);
+    const users = createRandomUser(50);
+    users.forEach(function(user){
+        user.isSubscribed = (Math.random()>0.5);
+    });
+    console.table(users);
+
+
+    const fullNameUsers = users.map(function(user){
+        return user.fullName();
+    });
+    console.table(fullNameUsers);
+
+
+function isOldPeople(user){
+    return user.age>=OLD_AGE;
+}
+const oldUsers = users.filter(isOldPeople);
+console.table(oldUsers);
+
+// Получить масси впользователей до 40 лет, женского пола, у которых есть подписка.
+
+function isAdultPeople(user){
+    return user.age<=ADULT_AGE && user.isMale === false && user.isSubscribed;
+}
+const adultUsers = users.filter(isAdultPeople);
+console.table(adultUsers);
+    
