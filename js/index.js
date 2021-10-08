@@ -78,42 +78,83 @@
     // const student = Student('Ivan', 'Yaremko', 22, true);
     // console.log(student.toString());
 
-    const student2 = {
-        id: 2,
-        firstName: 'Ann',
-        lastName: 'Lezedova',
-        age: 20,
-        isMale: false,
-        toString, //same with 10 string
-    };
-    console.log(student2.toString());
+    // const student2 = {
+    //     id: 2,
+    //     firstName: 'Ann',
+    //     lastName: 'Lezedova',
+    //     age: 20,
+    //     isMale: false,
+    //     toString, //same with 10 string
+    // };
+    // console.log(student2.toString());
     // student2.__proto__ = man;
     // console.log(student2.eat());
 
 
-function LadderPrototype(){
-    this.up = function(){
-        this.value++;
-        return this;
-    }
-    this.down = function(){
-        this.value--;
-        return this;
-    }
-    this.showStep = function(){
-        return this.value;
-    }
-}
+// function LadderPrototype(){
+//     this.up = function(){
+//         this.value++;
+//         return this;
+//     }
+//     this.down = function(){
+//         this.value--;
+//         return this;
+//     }
+//     this.showStep = function(){
+//         return this.value;
+//     }
+// }
 
-function Ladder(){
-    this.value = 0;
-}
+// function Ladder(){
+//     this.value = 0;
+// }
 
-Ladder.prototype = new LadderPrototype(); 
+// Ladder.prototype = new LadderPrototype(); 
 
-const ladder1 = new Ladder();
+// const ladder1 = new Ladder();
 
 
-const step = ladder1.up().up().down().up().up().up().up().down().showStep();
+// const step = ladder1.up().up().down().up().up().up().up().down().showStep();
 
-console.log(step);
+// console.log(step);
+
+
+    // function saySomething(howSay, whatSay){
+    //     howSay(whatSay);
+    // }
+
+    // saySomething(console.log, 'qwerty');
+
+    // saySomething(alert, 'alert');
+    // saySomething(prompt, 'prompt');
+    // saySomething(confirm, 'confirm');
+
+
+        const num = [1, 2, 3, 4, 5];
+
+        function square(n){
+            console.log(n*n);
+            return n*n;
+        }
+
+        // for(let i=0;i<num.length;i++){
+        //     square(num[i]);
+        // }
+
+        num.forEach(square);
+
+
+        const users = [{id:1,},{id:2,},{id:3,}];
+
+        function addSubscribe(user){
+            user.isSubscribed = true;
+        }
+
+        users.forEach(addSubscribe);
+
+
+        function isEven(n){
+            return n%2===0;
+        }
+
+        console.log(myArray.some(isEven));

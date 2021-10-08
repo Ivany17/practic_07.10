@@ -13,6 +13,46 @@ function MyArrayProto(){
         delete this[this.length];
         return item;
     }
+    this.forEach = function(func){
+        for(let i=0; i<this.length; i++){
+            func(this[i]);
+        }
+    }
+    this.some = function(func){
+        for(let i=0; i<this.length; i++){
+            if(func(this[i])){
+                return true;
+            }
+        }
+        return false;
+    }
+    this.every = function(func){
+        for(let i=0; i<this.length; i++){
+            if(func(this[i])===false){
+                return false;
+            }
+        }
+        return true;
+    }
+    this.filter = function(func){
+        const result = new MyArray();
+        for (let i=0; i<this.length; i++) {
+            if(func(this[i])){
+                result.push(this[i]);  
+            }
+        }
+        return result;
+    }
+}
+
+function isEven(n){
+    return n%2===0;
+}
+function isOdd(n){
+    return n%2===1;
+}
+function moreTen(n){
+    return n>10;
 }
 
 function MyArray(){
@@ -24,6 +64,5 @@ function MyArray(){
 
 MyArray.prototype = new MyArrayProto();
 
-
-const myArray = new MyArray(1,1,1,15,5);
-myArray.push(2,2,2);
+const myArray = new MyArray(12,1,15,5);
+console.log(myArray.filter(moreTen));
