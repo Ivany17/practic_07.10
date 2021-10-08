@@ -130,31 +130,67 @@
     // saySomething(confirm, 'confirm');
 
 
-        const num = [1, 2, 3, 4, 5];
+        // const num = [1, 2, 3, 4, 5];
 
-        function square(n){
-            console.log(n*n);
-            return n*n;
-        }
+        // function square(n){
+        //     console.log(n*n);
+        //     return n*n;
+        // }
 
         // for(let i=0;i<num.length;i++){
         //     square(num[i]);
         // }
 
-        num.forEach(square);
+        // num.forEach(square);
 
 
-        const users = [{id:1,},{id:2,},{id:3,}];
+        // const users = [{id:1,},{id:2,},{id:3,}];
 
-        function addSubscribe(user){
-            user.isSubscribed = true;
-        }
+        // function addSubscribe(user){
+        //     user.isSubscribed = true;
+        // }
 
-        users.forEach(addSubscribe);
+        // users.forEach(addSubscribe);
 
 
-        function isEven(n){
-            return n%2===0;
-        }
+        // function isEven(n){
+        //     return n%2===0;
+        // }
 
-        console.log(myArray.some(isEven));
+        // console.log(myArray.some(isEven));
+
+
+    // function User(firstName, lastName, age, isMale, email, isSubscribed = false){
+    //     this.firstName = firstName;
+    //     this.lastName = lastName;
+    //     this.age = age;
+    //     this.isMale = isMale;
+    //     this.email = email;
+    //     this.isSubscribed = isSubscribed;
+    // }
+
+    // function UserPrototype(){
+    //     this.fullName = function(){
+    //         return `${this.firstName} ${this.lastName}`;
+    //     }
+    // }
+
+    // User.protorype = new UserPrototype();
+
+    // function createRandomUser(amount = 1){
+    //     const db = [];
+    //     for(let i=0; i<amount; i++){
+    //         const user = new User(
+    //             `Name${i}`,
+    //             `Lname${i}`,
+    //             Math.ceil(Math.random()*60+20),
+    //             Math.random()>0.5,
+    //             `email${i}@gmail.com`
+    //         );
+    //         db.push(user);
+    //     }
+    //     return db;
+    // }
+
+    // const user = createRandomUser(50);
+    // console.table(user);
